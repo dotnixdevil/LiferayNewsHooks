@@ -1,0 +1,626 @@
+/********** News Slider **********/
+/** {
+	padding: 0;
+	margin: 0;
+}
+*/
+.clear {
+	clear: both;
+}
+
+/*a {
+	text-decoration: none;
+	outline: 0;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a img {
+	border: 0;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	padding-bottom: 60px;
+}
+*/
+/*HEADER*/
+#news-slider_inner {
+	/*width: 960px;*/
+	width: 100%;	
+	margin: 0 auto;
+	/*padding-top: 20px;*/
+	position: relative;
+}
+
+#news-slider #intro {
+	border-bottom: dotted #ccc 1px;
+	padding-bottom: 28px;
+	margin-bottom: 10px;
+}
+
+#news-slider #intro p {
+	font-size: 14px;
+	color: #8f8f8f;
+	line-height: 22px;
+	padding-bottom: 5px;
+}
+
+#news-slider #intro a {
+	color: #666;
+	padding: 6px;
+}
+
+#news-slider #intro a:hover {
+	background: #eee;
+	text-decoration: none;
+	border-bottom: dotted #ccc 1px;
+}
+
+#news-slider #intro ul {
+	padding-bottom: 15px;
+	padding-top: 3px;
+}
+
+#news-slider #intro li {
+	color: #8f8f8f;
+	margin-left: 50px;
+	padding-bottom: 4px;
+	font-size: 14px;
+}
+
+#news-slider p {
+	font-size: 12px;
+	/*color: #8f8f8f;*/
+	color: #333333;
+	padding-bottom: 10px;
+}
+
+#news-slider p a {
+	color: #e41996;
+}
+
+#news-slider h2 {
+	font-size: 26px;
+	font-weight: normal;
+	color: #666;
+	padding-bottom: 17px;
+	border-top: dotted #ccc 1px;
+	padding-top: 20px;
+	padding-bottom: 21px;
+	margin-top: 13px;
+}
+
+#news-slider h2 span {
+	font-size: 20px;
+}
+
+#news-slider #css3 {
+	float: right;
+}
+
+#news-slider #css3 a:hover {
+	background: none;
+	border: 0;
+}
+
+.pre_wrap {
+	background: #f9f9f9;
+	padding: 5px 5px 5px 14px;
+	margin-bottom: 33px;
+	margin-top: 32px;
+}
+
+.pre_wrap span.label {
+	color: #999;
+	font-size: 12px;
+	font-style: italic;
+	display: block;
+	padding-left: 5px;
+	padding-top: 5px;
+}
+
+.syntaxhighlighter {
+	font-size: 12px;
+}
+
+.slides1_wrap {
+	position: relative;
+	/*padding: 20px 0 37px 49px;*/
+	/*width: 750px;*/
+	width: 100%;	
+    /*background: url(../images/h3.png) repeat-x scroll 0 0 #FFFFFF;*/
+    border: 1px solid #CCCCCC;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 10px #666666;
+    cursor: pointer;
+    /*float: left;*/
+    height: 380px;
+    margin: 0px 0px 10px 0px;
+    background: #FFFFFF;
+	/*background: #D7D7D7; /*#BFBFBF; /* for non-css3 browsers */
+	/*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#D7D7D7'); /* for IE */
+	/*background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#D7D7D7)); /* for webkit browsers */
+	/*background: -moz-linear-gradient(top,  #FFFFFF,  #D7D7D7); /* for firefox 3.6+ */     
+}
+
+#slides1 {
+	overflow: hidden;
+	/*height: 212px;*/
+	height: 320px;
+}
+
+#slides1 li {
+	list-style: none;
+	width: 589px;
+}
+
+/*#slides1 li img {
+	float: left;
+}*/
+
+#news-slider p img {
+	float: left;
+	padding-right: 10px;
+	box-shadow: -5px 5px 5px #666666;
+}
+
+#slides1 .news-slider {
+	float: left;
+	/*width: 350px;*/
+	width: 90%;	
+	padding-left: 21px;
+}
+
+#slides1 li p {
+	line-height: 22px;
+}
+
+#slides1 h3 {
+	font-size: 36px;
+	color: #8d8d8d;
+	font-weight: normal;
+	text-transform: lowercase;
+}
+
+#slides1 h4 {
+	font-size: 18px;
+	color: #000;
+	font-style: italic;
+	font-weight: normal;
+	text-transform: lowercase;
+	padding-bottom: 10px;
+}
+
+#slides1 h4 a {
+	font-size: 18px;
+	color: #000;
+	font-style: italic;
+	font-weight: normal;
+	text-transform: lowercase;
+	padding-bottom: 16px;
+	text-decoration: none;	
+}
+
+#slides1 h4 a:hover {
+	text-decoration: underline;
+}
+
+.slides1_wrap .prev {
+	position: absolute;
+	/*left: -6px;
+	top: 100px;*/
+	left: 0px;
+	top: 100px;	
+	outline: 0;
+}
+
+.slides1_wrap .next {
+	position: absolute;
+	/*right: 90px;
+	top: 100px;*/
+	right: 0px;
+	top: 100px;
+	outline: 0;
+}
+
+.slides1_wrap a:active {
+	top: 102px;
+}
+
+.bx_pager {
+	padding-left: 309px;
+	padding-top: 15px;
+}
+
+.bx_pager a {
+	float: left;
+	background: url(../images/bg_pager.png) no-repeat 0 -21px;
+	width: 14px;
+	height: 17px;
+	color: #fff;
+	font-size: 11px;
+	margin-right: 6px;
+	/*padding: 4px 0 0 7px;*/
+	padding: 2px 0 0 7px;	
+}
+
+.bx_pager a:hover, .bx_pager a.active {
+	background-position: 0 0;
+	text-decoration: none;
+}
+
+.auto_controls {
+	position: absolute;
+	/*bottom: -11px;*/
+	bottom: 0px;	
+	left: 394px;
+}
+
+.auto_controls a {
+	font-size: 16px;
+	color: #a3a3a3;
+	outline: 0;
+	padding: 2px;
+}
+
+.auto_controls a:hover {
+	text-decoration: none;	
+	background: ;
+	/*color: #e41996;*/
+	color: #33728C;
+}
+
+#news-slider #notes li, #news-slider #changes li {
+	font-size: 12px;
+	color: #8f8f8f;
+	margin-left: 43px;
+	padding-bottom: 6px;
+}
+
+#news-slider #notes li a {
+	color: #e41996;
+}
+
+#idc-container a {
+	color: #e41996;	
+}
+
+#idc-container h3 {
+	color: #666;
+}
+/********** News Slider **********/
+
+/********** News Ticker **********/
+#ticker-wrapper.has-js {
+	/*margin: 20px 0px 20px 0px;*/
+	margin: 25px 0px 0px 0px;
+	padding: 0px 20px;
+	width: 96%;
+	min-height: 32px;
+	display: block;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background-color: #ffffff;/*#f8f0db;*/
+	font-size: 12px;
+	box-shadow: 0 0 10px #666666;
+}
+#ticker {
+	width: 90%;
+	min-height: 23px;
+	display: block;
+	position: relative;
+	overflow: hidden;
+	background-color: #ffffff;/*#f8f0db;*/
+}
+#ticker-title {
+	padding-top: 9px;
+	color: #990000;
+	font-weight: bold;
+	background-color: #ffffff;/*#f8f0db;*/
+	text-transform: uppercase;
+}
+#ticker-content {
+	margin: 0px;
+	padding-top: 9px;
+	position: absolute;
+	color: #1F527B;
+	/*font-weight: bold;*/
+	background-color: #ffffff;/*#f8f0db;*/
+	overflow: hidden;
+	white-space: nowrap;
+	line-height: 1.2em;
+}
+#ticker-content:focus {
+	none;
+}
+#ticker-content a {
+	text-decoration: none;	
+	color: #333333;
+}
+#ticker-content a:hover {
+	text-decoration: underline;	
+	color: #33728C;
+}
+#ticker-swipe {
+	padding-top: 9px;
+	position: absolute;
+	top: 0px;
+	background-color: #ffffff;/*#f8f0db;*/
+	display: block;
+	width: 800px;
+	height: 23px; 
+}
+#ticker-swipe span {
+	margin-left: 1px;
+	background-color: #ffffff;/*#f8f0db;*/
+	border-bottom: 1px solid #1F527B;
+	height: 12px;
+	width: 7px;
+	display: block;
+}
+#ticker-controls {
+	padding: 8px 0px 0px 0px;
+	list-style-type: none;
+	float: left;
+	margin: 0px;
+}
+#ticker-controls li {
+	padding: 0px;
+	margin-left: 5px;
+	float: left;
+	cursor: pointer;
+	height: 16px;
+	width: 16px;
+	display: block;
+}
+#ticker-controls li#play-pause {
+	background-image: url('../images/controls.png');
+	background-position: 32px 16px;
+}
+#ticker-controls li#play-pause.over {
+	background-position: 32px 32px;
+}
+#ticker-controls li#play-pause.down {
+	background-position: 32px 0px;
+}
+#ticker-controls li#play-pause.paused {
+	background-image: url('../images/controls.png');	
+	background-position: 48px 16px;
+}
+#ticker-controls li#play-pause.paused.over {
+	background-position: 48px 32px;
+}
+#ticker-controls li#play-pause.paused.down {
+	background-position: 48px 0px;
+}
+#ticker-controls li#prev {
+	background-image: url('../images/controls.png');
+	background-position: 0px 16px;		
+}
+#ticker-controls li#prev.over {
+	background-position: 0px 32px;		
+}
+#ticker-controls li#prev.down {
+	background-position: 0px 0px;		
+}
+#ticker-controls li#next {
+	background-image: url('../images/controls.png');	
+	background-position: 16px 16px;	
+}
+#ticker-controls li#next.over {
+	background-position: 16px 32px;	
+}
+#ticker-controls li#next.down {	
+	background-position: 16px 0px;	
+}
+.js-hidden {
+	display: none;
+}
+#no-js-news {
+	padding: 10px 0px 0px 45px; 
+	color: #FFFFFF;/*#F8F0DB;*/
+}
+.left #ticker-swipe {
+	left: 80px;
+}
+.left #ticker-controls, .left #ticker-content, .left #ticker-title, .left #ticker {
+    float: left;
+}
+.left #ticker-controls {
+    padding-left: 6px;
+}
+.right #ticker-swipe {
+	right: 80px;
+}
+.right #ticker-controls, .right #ticker-content, .right #ticker-title, .right #ticker {
+    float: right;
+}
+.right #ticker-controls {
+    padding-right: 6px;
+}
+/********** News Ticker **********/
+
+/********** Tabs **********/
+ul.tabs {
+	margin: 0;
+	padding: 0;
+	float: left;
+	list-style: none;
+	height: 32px; /*--Set height of tabs--*/
+	/*border-bottom: 1px solid #CCC;*/
+	border-left: 1px solid #CCC;
+	width: 100%;
+}
+ul.tabs li {
+	float: left;
+	margin: 0;
+	padding: 0;
+	height: 31px; /*--Subtract 1px from the height of the unordered list--*/
+	line-height: 31px; /*--Vertically aligns the text within the tab--*/
+	border: 1px solid #ccc;
+	border-left: none;
+	margin-bottom: -1px; /*--Pull the list item down 1px--*/
+	overflow: hidden;
+	position: relative;
+	background: #33728C;
+	box-shadow: -3px -3px 3px #ccc;
+	border-radius: 5px 5px 0px 0px;
+}
+
+
+ul.tabs li a {
+	text-decoration: none;
+	color: #FFF;
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 0 20px;
+	/*border: 1px solid #fff; /*--Gives the bevel look with a 1px white border inside the list item--*/
+	outline: none;
+}
+ul.tabs li a:hover {
+	background: #fff;
+	color: #33728C;
+}
+html ul.tabs li.active, html ul.tabs li.active a:hover  { /*--Makes sure that the active tab does not listen to the hover properties--*/
+	background: #fff;
+	border-bottom: 1px solid #fff; /*--Makes the active tab look like it's connected with its content--*/
+}
+
+html ul.tabs li.active a { 
+	color: #33728C;
+	font-weight: bold;
+}
+
+/**/
+.tab_container {
+	border: 1px solid #ccc;
+	border-top: none;
+	overflow: hidden;
+	clear: both;
+	float: left; width: 100%;
+	background: #fff;
+    	box-shadow: 0 0 10px #666666;
+	border-radius: 0px 5px 5px 5px;
+}
+.tab_content {
+	padding: 20px;
+	font-size: 12px;
+}
+.tab-title a {   
+	color: #000;
+	text-decoration: none; 
+	margin-bottom: 10px;
+	margin-left: 5px;
+	/*margin-top: 10px;*/
+	padding-bottom: 5px;
+}
+.tab-title a:hover {   
+	background-color: #eee;
+	text-decoration: none; 
+}
+.title-list {
+	list-style-type: none;
+	background: url('../images/bullet.png') no-repeat top left;
+	padding-left: 10px;
+}
+/********** Tabs **********/
+
+/********** Categories Navigation **********/
+#menu {
+  width: 100%;
+  height: 35px;
+  clear: both;
+	margin-bottom: 20px; 
+}
+
+ul#nav {
+  float: left;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: #8E2800 /*url(../img/menu-parent.png) repeat-x*/;
+  -moz-border-radius-topright: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -webkit-border-top-left-radius: 5px; 
+}
+
+ul#nav li {
+  display: inline;
+}
+
+ul#nav li a {
+  float: left;
+  font: bold 1.1em arial,verdana,tahoma,sans-serif;
+  line-height: 35px;
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 1px 1px 1px #880000;
+  margin: 0;
+  padding: 0 25px;
+  background: #8E2800 /*url(../img/menu-parent.png) repeat-x*/;
+  -moz-border-radius-topright: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -webkit-border-top-left-radius: 5px;     
+}
+
+/* APPLIES THE ACTIVE STATE */
+ul#nav .current a, ul#nav li:hover > a  {
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 1px 1px 1px #330000;
+  background: #B64926;
+  /*-moz-border-radius-topright: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -webkit-border-top-left-radius: 5px; */
+}
+
+/* THE SUBMENU LIST HIDDEN BY DEFAULT */
+ul#nav  ul {
+  display: none;
+}
+
+/* WHEN THE FIRST LEVEL MENU ITEM IS HOVERED, THE CHILD MENU APPEARS */
+ul#nav li:hover > ul {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  margin: 35px 0 0 0;
+  background: #B64926 /*url(../img/menu-child.png) repeat-x*/;  
+  /*-moz-border-radius-bottomright: 10px;
+  -webkit-border-bottom-right-radius: 10px;
+  -moz-border-radius-bottomleft: 10px;
+  -webkit-border-bottom-left-radius: 10px; */
+}
+
+ul#nav li:hover > ul li a {
+  float: left;
+  font: bold 1.1em arial,verdana,tahoma,sans-serif;
+  line-height: 30px;
+  color: #fff;
+  text-decoration: none;
+  /*text-shadow: 1px 1px 1px #110000;*/
+  margin: 0;
+  padding: 0 25px;
+  background: #B64926 /*url(../img/menu-child.png) repeat-x*/; 
+  border-right: solid 1px #fff;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+}
+
+ul#nav li:hover > ul li a:hover {
+  color: #120000;
+  text-decoration: none;
+  text-shadow: none;
+}
+/********** Categories Navigation **********/

@@ -1,0 +1,190 @@
+<%--
+Programmed by BOC team 
+--%>
+
+<%
+int end = searchContainer.getEnd();
+int start = searchContainer.getStart();
+
+assetEntryQuery.setGroupIds(groupIds);
+assetEntryQuery.setEnd(end);
+assetEntryQuery.setExcludeZeroViewCount(excludeZeroViewCount);
+assetEntryQuery.setOrderByCol1(orderByColumn1);
+assetEntryQuery.setOrderByCol2(orderByColumn2);
+assetEntryQuery.setOrderByType1(orderByType1);
+assetEntryQuery.setOrderByType2(orderByType2);
+assetEntryQuery.setStart(start);
+
+List<AssetEntry> results = new ArrayList<AssetEntry>();
+int total = 0;
+
+if (!portletName.equals(PortletKeys.RELATED_ASSETS) || (assetEntryQuery.getLinkedAssetEntryId() > 0)) {
+
+	if (assetVocabularyId > 0) {
+
+		AssetVocabulary assetVocabulary = AssetVocabularyLocalServiceUtil.getVocabulary(assetVocabularyId);
+
+		List<AssetCategory> assetCategories = AssetCategoryLocalServiceUtil.getVocabularyRootCategories(assetVocabulary.getVocabularyId(), QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
+
+	if (!anyAssetType) {
+			assetEntryQuery.setClassNameIds(classNameIds);		
+	}
+%>
+
+	<ul class="tabs">
+<%
+
+	for (AssetCategory assetCategory : assetCategories) 
+	{
+%>
+		<li><a href="#tab<%= assetCategory.getCategoryId() %>"><%= assetCategory.getTitle(locale) %></a></li>
+<%
+	}
+%>
+	</ul>
+
+	<div class="tab_container">
+<%
+	for (AssetCategory assetCategory : assetCategories) 
+	{			
+		assetCategory = assetCategory.toEscapedModel();
+
+		long[] oldAllCategoryIds = assetEntryQuery.getAllCategoryIds();
+
+		long[] newAllAssetCategoryIds = ArrayUtil.append(oldAllCategoryIds, assetCategory.getCategoryId());
+
+		assetEntryQuery.setAllCategoryIds(newAllAssetCategoryIds);
+
+		int groupTotal = AssetEntryServiceUtil.getEntriesCount(assetEntryQuery);
+
+		total += groupTotal;
+
+		results = AssetEntryServiceUtil.getEntries(assetEntryQuery);
+
+		if (!results.isEmpty()) 
+		{
+			searchContainer.setResults(results);
+
+			request.setAttribute("view.jsp-results", results);
+%>								
+			<div id="tab<%= assetCategory.getCategoryId() %>" class="tab_content">	
+	
+				<%@ include file="/html/portlet/asset_publisher/view_dynamic_list_asset.jspf" %>
+			
+			</div>
+<%
+		}
+
+		if (groupTotal > 0) {
+			if ((end > 0) && (end > groupTotal)) {
+				end -= groupTotal;
+			}
+			else {
+				end = 0;
+			}
+
+			if ((start > 0) && (start > groupTotal)) {
+				start -= groupTotal;
+			}
+			else {
+				start = 0;
+			}
+		}
+
+		assetEntryQuery.setAllCategoryIds(oldAllCategoryIds);
+		assetEntryQuery.setEnd(end);
+		assetEntryQuery.setStart(start);
+	}
+%>
+	</div>
+<%
+
+		searchContainer.setTotal(total);
+	}
+	else if (!groupByClass) {
+
+
+		if (!anyAssetType) {
+			assetEntryQuery.setClassNameIds(classNameIds);
+		}
+
+		total = AssetEntryServiceUtil.getEntriesCount(assetEntryQuery);
+
+		searchContainer.setTotal(total);
+
+		results = AssetEntryServiceUtil.getEntries(assetEntryQuery);
+
+		searchContainer.setResults(results);
+
+		request.setAttribute("view.jsp-results", results);
+	%>
+
+		<%@ include file="/html/portlet/asset_publisher/view_dynamic_list_asset.jspf" %>
+
+	<%
+	}
+	else {
+
+		int maxGroupTotal = 0;
+
+		for (long classNameId : classNameIds) {
+			long[] groupClassNameIds = {classNameId};
+
+			assetEntryQuery.setClassNameIds(groupClassNameIds);
+
+			assetEntryQuery.setEnd(end);
+			assetEntryQuery.setStart(start);
+
+			String groupClassName = PortalUtil.getClassName(classNameId);
+
+			AssetRendererFactory groupAssetRendererFactory = AssetRendererFactoryRegistryUtil.getAssetRendererFactoryByClassName(groupClassName);
+
+			int groupTotal = AssetEntryServiceUtil.getEntriesCount(assetEntryQuery);
+
+			if (groupTotal > maxGroupTotal) {
+				maxGroupTotal = groupTotal;
+			}
+
+			total += groupTotal;
+
+			results = AssetEntryServiceUtil.getEntries(assetEntryQuery);
+
+			searchContainer.setResults(results);
+
+			request.setAttribute("view.jsp-results", results);
+
+			if (!results.isEmpty()) {
+	%>
+
+				<h3 class="asset-entries-group-label"><liferay-ui:message key="<%= groupAssetRendererFactory.getType() %>" /></h3>
+
+				<%@ include file="/html/portlet/asset_publisher/view_dynamic_list_asset.jspf" %>
+
+	<%
+			}
+		}
+
+		searchContainer.setTotal(maxGroupTotal);
+	}
+}
+
+if (total == 0) {
+	if (!showPortletWithNoResults && !((assetCategoryId > 0) || Validator.isNotNull(assetTagName))) {
+		renderRequest.setAttribute(WebKeys.PORTLET_CONFIGURATOR_VISIBILITY, Boolean.TRUE);
+	}
+%>
+
+	<p>
+		<c:choose>
+			<c:when test="<%= !portletName.equals(PortletKeys.RELATED_ASSETS) %>">
+				<liferay-ui:message key="there-are-no-results" />
+			</c:when>
+			<c:otherwise>
+				<liferay-ui:message key="there-are-no-related-assets" />
+			</c:otherwise>
+		</c:choose>
+	</p>
+
+<%
+}
+%>
